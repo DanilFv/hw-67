@@ -1,10 +1,10 @@
 
-
 const DoorPassword = () => {
+
     return (
-        <div>
-            Password
-        </div>
+        <>
+            Pad
+        </>
     );
 };
 

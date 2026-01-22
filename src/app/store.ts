@@ -1,8 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit';
+import {doorReducer} from '../containers/DoorPassword/DoorSlice.ts';
 
 export const store = configureStore({
     reducer: {
-
+        pinPad: doorReducer,
     }
 });
 

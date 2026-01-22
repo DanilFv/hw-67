@@ -1,0 +1,49 @@
+.pin-pad-wrapper {
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.screen {
+  height: 60px;
+  border: 1px solid #999;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  background-color: white;
+}
+
+
+.screen.granted {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.screen.denied {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.key-button {
+  padding: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+.key-button:active {
+  background: #ddd;
+}

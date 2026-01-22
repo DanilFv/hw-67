@@ -1,18 +1,39 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, type PayloadAction} from '@reduxjs/toolkit';
+import {CORRECT_PIN} from '../../Constants.ts';
 
 interface DoorSlice {
-    password: number;
+    enteredPin: string;
+    status: string;
 }
 
 const initialState: DoorSlice = {
-    password: 1337,
+    enteredPin: '',
+    status: 'idle',
 };
 
-
 export const doorSlice = createSlice({
-    name: 'password',
+    name: 'pinPad',
     initialState,
     reducers: {
+        addNumbersToPin: (state, action: PayloadAction<string>) => {
+            if (state.enteredPin.length < 4 && state.status === 'idle') {
+                state.enteredPin += action.payload;
+            }
+        },
 
+        removeNumbersFromPin: (state) => {
+            state.enteredPin = state.enteredPin.slice(0,-1);
+        },
+
+        checkPin: (state) => {
+            if (state.enteredPin === CORRECT_PIN) {
+                state.status = 'granted';
+            } else {
+                state.status = 'denied';
+            }
+        }
     }
 });
+
+export const {addNumbersToPin, removeNumbersFromPin, checkPin} = doorSlice.actions;
+export const doorReducer = doorSlice.reducer;
