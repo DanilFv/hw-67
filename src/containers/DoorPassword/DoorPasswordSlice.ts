@@ -1,12 +1,12 @@
 import {createSlice, type PayloadAction} from '@reduxjs/toolkit';
 import {CORRECT_PIN} from '../../Constants.ts';
 
-interface DoorSlice {
+interface DoorPasswordSlice {
     enteredPin: string;
     status: string;
 }
 
-const initialState: DoorSlice = {
+const initialState: DoorPasswordSlice = {
     enteredPin: '',
     status: 'idle',
 };
@@ -31,9 +31,10 @@ export const doorSlice = createSlice({
             } else {
                 state.status = 'denied';
             }
-        }
+        },
+
     }
 });
 
-export const {addNumbersToPin, removeNumbersFromPin, checkPin} = doorSlice.actions;
+export const {addNumbersToPin, removeNumbersFromPin, checkPin,} = doorSlice.actions;
 export const doorReducer = doorSlice.reducer;

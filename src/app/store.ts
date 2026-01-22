@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit';
-import {doorReducer} from '../containers/DoorPassword/DoorSlice.ts';
+import {doorReducer} from '../containers/DoorPassword/DoorPasswordSlice.ts';
 
 export const store = configureStore({
     reducer: {
