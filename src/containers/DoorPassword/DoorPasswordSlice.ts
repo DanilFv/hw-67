@@ -33,8 +33,13 @@ export const doorSlice = createSlice({
             }
         },
 
+        reset: (state) => {
+            state.enteredPin = '';
+            state.status = 'idle';
+        }
+
     }
 });
 
-export const {addNumbersToPin, removeNumbersFromPin, checkPin,} = doorSlice.actions;
+export const {addNumbersToPin, removeNumbersFromPin, checkPin, reset} = doorSlice.actions;
 export const doorReducer = doorSlice.reducer;

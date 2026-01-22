@@ -2,10 +2,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import {
     addNumbersToPin,
     checkPin,
-    removeNumbersFromPin
+    removeNumbersFromPin,
+    reset
 } from './DoorPasswordSlice.ts';
 import type {RootState} from '../../app/store.ts';
 import PadScreen from '../../components/PadScreen/PadScreen.tsx';
+import {useEffect} from 'react';
 
 
 const DoorPassword = () => {
@@ -27,6 +29,16 @@ const DoorPassword = () => {
         if (status === 'denied') return 'Access Denied';
         return '*'.repeat(enteredPin.length);
     };
+
+    useEffect(() => {
+        if (status === 'granted' || status === 'denied') {
+            const timer = setTimeout(() => {
+                dispatch(reset());
+            }, 1500);
+
+            return () => clearTimeout(timer);
+        }
+    },[status, dispatch]);
 
     return (
         <>
